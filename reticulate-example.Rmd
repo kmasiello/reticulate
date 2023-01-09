@@ -1,0 +1,31 @@
+---
+title: "Using reticulate"
+---
+
+```{r}
+library(reticulate)
+library(ggplot2)
+```
+
+Source a python script using R
+```{r}
+source_python("py_hello.py")
+```
+
+Notice the `netflix` variable in the python environment pane
+
+```{python}
+netflix.head()
+```
+
+Use this in R
+```{r}
+names(py$netflix)
+
+ggplot(data = py$netflix, aes(x = (release_year), fill = type)) +
+  geom_bar() +
+  theme_bw()
+```
+
+
+
