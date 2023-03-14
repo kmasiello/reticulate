@@ -1,0 +1,27 @@
+---
+title: "Reticulate usage notes"
+---
+when my venv is activated in the terminal, still does not run this script using
+that venv because RETICULATE_PYTHON isn't set? Uses `reticulate::repl_python()`
+
+# > reticulate::repl_python()
+# Python 3.9.6 (/usr/bin/python3)
+# Reticulate 1.26 REPL -- A Python interpreter in R.
+# Enter 'exit' or 'quit' to exit the REPL and return to R.
+# >>> test = "Py hello"
+# >>> %env RETICULATE_PYTHON
+# [1] ""
+
+
+After setting RETICULATE_PYTHON (echo "RETICULATE_PYTHON=venv/bin/python" >>
+.Renviron)
+
+# >>> test = "Py hello"
+# >>> %env RETICULATE_PYTHON
+# [1] "venv/bin/python"
+# >>> %pip freeze
+# click==8.1.3
+# PyJWT==2.6.0
+# rsconnect-python==1.13.0
+# semver==2.13.0
+# six==1.16.0
